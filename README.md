@@ -53,7 +53,7 @@ Umm..NO
 
 ## 4. Unlicensed
 
-This project is licensed under [The Unlicense](https://github.com/megaacheyounes/rn-geolocation-inclusive/blob/main/LICENSE) 
+This project is licensed under [The Unlicense](https://github.com/megaacheyounes/rn-geolocation-inclusive/blob/main/UNLICENSE) 
  
 
 ```
