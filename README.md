@@ -46,6 +46,7 @@ npm run android
 This project's Gradle version have been updated to version 7, which is not compatible with old gradle scripts from `@hmscore` libraries. Therefore patches have been included in `patches/` to fix gradle compilation errors cauzed mainly by unsupported `maven` plugin.
 The patches will apply automatically everytime you install `node_modules`, aka after every `npm install`.
 
+
 How to make your Gradle project compatible with `@hmscore` availability and location libraries:
 
 1. install `patch-package` and `postinstall-postinstall` libraries using command: `npm i --save-dev patch-package postinstall-postinstall`
@@ -60,8 +61,9 @@ How to make your Gradle project compatible with `@hmscore` availability and loca
  }
 ```
 
-Done, run `npm i` to apply the patches.
 
+Done, run `npm i` to apply the patches, then run the app.
+> Note: the above steps have already been applied to this project
 
 ## 4. Configuration
 
