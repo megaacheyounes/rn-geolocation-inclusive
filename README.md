@@ -7,8 +7,9 @@ Inclusive ReactNative app that demonstrate using geolocation-service along with 
 
   - [1. Introduction](#1-introduction)
   - [2. Installation](#2-installation)
-  - [3. Configuration](#3-configuration)
-  - [4. Unlicensed](#4-unlicensed)
+  - [3. Gradle 7 support](#3-gradle7-support)
+  - [4. Configuration](#4-configuration)
+  - [5. Unlicensed](#5-unlicensed)
 
  
 
@@ -39,13 +40,31 @@ npm i
 ```bash
 npm run android
 ```
- 
 
-## 3. Configuration
+## 3. Gradle7 support
+
+This project's Gradle version have been updated to version 7, which is not compatible with old gradle scripts from `@hmscore` libraries. Therefore patches have been included in `patches/` to fix gradle compilation errors cauzed mainly by unsupported `maven` plugin.
+The patches will apply automatically everytime you install `node_modules`, aka after every `npm install`.
+
+How to make your Gradle project compatible with `@hmscore` availability and location libraries:
+
+1. install `patch-package` and `postinstall-postinstall` libraries using command: `npm i --save-dev patch-package postinstall-postinstall`
+2. copy `@hmscore` patches from `patches/` to your projects root directory under folder named `patches/`, below patches description:
+   1. `patches/@hmscore+react-native-hms-availability+5.2.0-300.patch`: patch file will fix the Gradle7 issue with availability libray
+   2. `patches/@hmscore+react-native-hms-location+6.4.0-300.patch`: patch file will fix Gradle7 issue with location library
+   3. `patches/@react-native-community+cli-platform-android+2.9.0.patch`: this patch file can be skipped, as it fixes the issue of react-native cli and Gradle7, that you may not face if you're using newer react-native version
+3. Add `postinstall` script to your `package.json` to automatically apply the patches:` "scripts": {
+ "postinstall": "patch-package"
+ }`
+
+Done, to apply the patches, run the command `npm i`
+
+
+## 4. Configuration
 
 NO
  
 
-## 4. Unlicensed
+## 5. Unlicensed
 
 [The Unlicense](https://github.com/megaacheyounes/rn-geolocation-inclusive/blob/master/UNLICENSE) 
