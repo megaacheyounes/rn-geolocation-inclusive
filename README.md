@@ -49,15 +49,18 @@ The patches will apply automatically everytime you install `node_modules`, aka a
 How to make your Gradle project compatible with `@hmscore` availability and location libraries:
 
 1. install `patch-package` and `postinstall-postinstall` libraries using command: `npm i --save-dev patch-package postinstall-postinstall`
-2. copy `@hmscore` patches from `patches/` to your projects root directory under folder named `patches/`, below patches description:
-   1. `patches/@hmscore+react-native-hms-availability+5.2.0-300.patch`: patch file will fix the Gradle7 issue with availability libray
-   2. `patches/@hmscore+react-native-hms-location+6.4.0-300.patch`: patch file will fix Gradle7 issue with location library
-   3. `patches/@react-native-community+cli-platform-android+2.9.0.patch`: this patch file can be skipped, as it fixes the issue of react-native cli and Gradle7, that you may not face if you're using newer react-native version
-3. Add `postinstall` script to your `package.json` to automatically apply the patches:` "scripts": {
+2. copy `@hmscore` patches from `patches/` to your projects root directory under folder named `patches/`, patch files are:
+   1. `patches/@hmscore+react-native-hms-availability+5.2.0-300.patch`: patch file will fix the Gradle7 missing 'maven' plugin issue caused by availability libray
+   2. `patches/@hmscore+react-native-hms-location+6.4.0-300.patch`: patch file will fix Gradle7 missing 'maven' plugin issue caused by location library
+   3. `patches/@react-native-community+cli-platform-android+2.9.0.patch`: this patch file can be skipped, as it fixes the issue of old react-native cli and Gradle 7, that you most probably are not facing if you're using newer version of react-native
+3. Add `postinstall` script to your `package.json` to automatically apply the patches:
+```js
+"scripts": {
  "postinstall": "patch-package"
- }`
+ }
+```
 
-Done, to apply the patches, run the command `npm i`
+Done, run `npm i` to apply the patches.
 
 
 ## 4. Configuration
